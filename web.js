@@ -3,9 +3,10 @@ var fs = require('fs');
 
 var app = express.createServer(express.logger());
 
+var indexBuff = fs.readFileSync('./index.html');
+var indexStr = indexBuff.toString();
+
 app.get('/', function(request, response) {
-    var indexBuff = fs.readFileSync('./index.html');
-    var indexStr = indexBuff.toString();
   response.send(indexStr);
 });
 
